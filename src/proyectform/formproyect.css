@@ -1,0 +1,19 @@
+.cardbody-color {
+    background-color: #ffffff; /* Color de fondo */
+  }
+  
+  .btn-color {
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #fff; /* Color de texto del botón */
+  }
+  
+  .btn-color:hover {
+    background-color: #0056b3; /* Cambio de color al pasar el ratón */
+  }
+
+  /* Estilos personalizados para el formulario */
+.form-control {
+    width: 100%; /* Establece el ancho al 100% */
+    text-align: left;
+  }
+

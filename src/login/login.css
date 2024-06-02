@@ -1,0 +1,30 @@
+.btn-color{
+    background-color: #0e1c36;
+    color: #70696940;
+    
+  }
+  
+  .profile-image-pic{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+  }
+
+  .login-container {
+    background-image: url('https://portal.ucm.cl//content/uploads/2016/10/universidad-ucm.jpg');
+    background-size: cover;
+    background-position: center center ;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  a{
+    text-decoration: none;
+  }
+
+
+.card-body{
+    background-color: #ffffff7c;
+}
+
+  

@@ -1,0 +1,71 @@
+/* Estilos para el NavBar */
+.navbar {
+  background-color: rgb(38, 63, 133);
+  padding: 10px 20px;
+}
+
+.navbar .logo-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinea los elementos a la izquierda */
+  width: 98%; /* Asegura que el contenedor ocupe todo el ancho */
+}
+
+.navbar .logo-img {
+  height: 45px;
+}
+
+.navbar .btn {
+  background-color: rgb(38, 63, 133);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-left: 2%;
+}
+
+.navbar .btn:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.navbar .dropdown {
+  margin-left: 10px;
+}
+
+.navbar .dropdown-toggle {
+  background-color: rgb(38, 63, 133);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar .dropdown-toggle:hover,
+.navbar .dropdown-toggle:focus,
+.navbar .dropdown-toggle:active {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dropdown-menu {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.dropdown-item {
+  color: #333;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+  color: #007bff;
+}

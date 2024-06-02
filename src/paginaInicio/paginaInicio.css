@@ -1,0 +1,24 @@
+/* Estilos generales de la aplicación */
+
+/* Estilos para el contenedor principal */
+.container {
+    padding-top: 20px; /* Espaciado superior */
+  }
+  
+  /* Estilos para el área de carga de imágenes */
+  .form-label {
+    font-size: 1.2rem; /* Tamaño de fuente del label */
+  }
+  
+  /* Estilos para las imágenes subidas */
+  .img-fluid {
+    width: 100%; /* Ancho máximo */
+    height: auto; /* Altura automática */
+    border-radius: 5px; /* Borde redondeado */
+  }
+  
+  /* Estilos para el NavBar inferior */
+  .navbar {
+    justify-content: center; /* Centrar los elementos */
+  }
+  
