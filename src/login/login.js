@@ -63,7 +63,7 @@ const ViewLogin = () => {
               <button type="submit" className="btn btn-color px-5 mb-5 w-100">Ingresar</button>
             </div>
             <div id="emailHelp" className="form-text text-center mb-5 text-dark">¿No tienes una cuenta?
-              <a href="https://www.servel.cl/" className="text-dark fw-bold"> Crea una cuenta</a>
+              <a href="/registro" className="text-dark fw-bold"> Crea una cuenta</a>
             </div>
           </form>
         </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'; // Importa el componente Link
 import Inicio from '../inicionav/nav';
-import './viewcarreras.css';
+
 
 const Carreras = () => {
     const [carreras, setCarreras] = useState([]);
@@ -13,7 +13,7 @@ const Carreras = () => {
 
     const cargarCarreras = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/carreras'); // Ajusta la ruta de la API según corresponda
+            const response = await axios.get('http://localhost:3001/carrera'); // Ajusta la ruta de la API según corresponda
             setCarreras(response.data);
         } catch (error) {
             console.error('Error al cargar carreras:', error.message);
@@ -24,7 +24,7 @@ const Carreras = () => {
         const confirmacion = window.confirm(`¿Estás seguro de que deseas eliminar la carrera "${nombreCarrera}"?`);
         if (confirmacion) {
             try {
-                await axios.delete(`http://localhost:3001/carreras/${id}`); // Ajusta la ruta de la API según corresponda
+                await axios.delete(`http://localhost:3001/carrera/${id}`); // Ajusta la ruta de la API según corresponda
                 setCarreras(carreras.filter(carrera => carrera.id !== id));
                 console.log('Carrera eliminada exitosamente');
             } catch (error) {
@@ -44,8 +44,8 @@ const Carreras = () => {
                             {carreras.map(carrera => (
                                 <li key={carrera.id} className="list-group-item d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h5 className="mb-0">{carrera.nombre}</h5>
-                                        <p className="mb-0 text-secondary">{carrera.descripcion}</p>
+                                        <h5 className="mb-0">{carrera.name_careers}</h5>
+                                        <p className="mb-0 text-secondary">{carrera.id}</p>
                                     </div>
                                     <div>
                                         <button className="btn btn-danger btn-sm" onClick={() => handleEliminarCarrera(carrera.id, carrera.nombre)}>Eliminar</button>

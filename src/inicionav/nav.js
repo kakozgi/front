@@ -13,7 +13,25 @@ const Inicio = () => {
           <Dropdown.Menu>
             <Dropdown.Item href="/proyect">Presentar Proyecto</Dropdown.Item>
             <Dropdown.Item href="/proyect/view">Proyectos</Dropdown.Item>
-            <Dropdown.Item href="3">uwu</Dropdown.Item>
+
+            <Dropdown.Item href="/carrera">Carreras</Dropdown.Item>
+
+            <Dropdown.Item href="/facultad/view">Facultades</Dropdown.Item>
+            <Dropdown.Item href="/facultad">Ingresar Facultad</Dropdown.Item>
+
+            <Dropdown.Item href="/sede/view">Sedes</Dropdown.Item>
+            <Dropdown.Item href="/sede">Ingresar Sede</Dropdown.Item>
+
+            <Dropdown.Item href="/area/view">Areas</Dropdown.Item>
+            <Dropdown.Item href="/area">Ingresar Area</Dropdown.Item>
+
+            <Dropdown.Item href="/usuarios/view">Usuarios</Dropdown.Item>
+            <Dropdown.Item href="/usuarios">Ingresar Usuarios</Dropdown.Item>
+
+            <Dropdown.Item href="/rol/view">Roles</Dropdown.Item>
+            <Dropdown.Item href="/rol">Ingresar Roles</Dropdown.Item>
+
+
           </Dropdown.Menu>
         </Dropdown>
       </div>

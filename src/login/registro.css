@@ -1,0 +1,63 @@
+
+
+.profile-image-pic {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+
+.register-container {
+    background-image: url('https://portal.ucm.cl//content/uploads/2016/10/universidad-ucm.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.card-body {
+    background-color: #ffffff7c;
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.form-control {
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+
+
+.text-center {
+    text-align: center;
+}
+
+.alert {
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
