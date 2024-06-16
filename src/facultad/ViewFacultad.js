@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; // Importa el componente Link
+import { Link } from 'react-router-dom'; 
 import Inicio from '../inicionav/nav';
 
 const Facultades = () => {
@@ -12,7 +12,7 @@ const Facultades = () => {
 
     const cargarFacultades = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/facultad'); // Ajusta la ruta de la API según corresponda
+            const response = await axios.get('http://localhost:3001/facultad'); 
             setFacultades(response.data);
         } catch (error) {
             console.error('Error al cargar facultades:', error.message);
@@ -23,7 +23,7 @@ const Facultades = () => {
         const confirmacion = window.confirm(`¿Estás seguro de que deseas eliminar la facultad "${nombreFacultad}"?`);
         if (confirmacion) {
             try {
-                await axios.delete(`http://localhost:3001/facultad/${id}`); // Ajusta la ruta de la API según corresponda
+                await axios.delete(`http://localhost:3001/facultad/${id}`); 
                 setFacultades(facultades.filter(facultad => facultad.id !== id));
                 console.log('Facultad eliminada exitosamente');
             } catch (error) {
@@ -43,7 +43,7 @@ const Facultades = () => {
                             {facultades.map(facultad => (
                                 <li key={facultad.id} className="list-group-item d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h5 className="mb-0">{facultad. name_facultie}</h5>
+                                        <h5 className="mb-0">{facultad.name_facultie}</h5>
                                     </div>
                                     <div>
                                         <button className="btn btn-danger btn-sm" onClick={() => handleEliminarFacultad(facultad.id, facultad.name_facultie)}>Eliminar</button>

@@ -13,7 +13,6 @@ const CrearUsuario = () => {
         primaryEmail: '',
         secundaryEmail: '',
         description: '',
-        // Agrega aquí otros campos necesarios para crear un usuario
     });
     const [confirmacion, setConfirmacion] = useState(false);
     const [error, setError] = useState('');
@@ -29,8 +28,6 @@ const CrearUsuario = () => {
             await axios.post('http://localhost:3001/usuario', userData);
             console.log('Usuario creado exitosamente');
             setConfirmacion(true);
-
-            // Reiniciar el estado para limpiar los campos del formulario
             setUserData({
                 username: '',
                 password: '',
@@ -41,7 +38,6 @@ const CrearUsuario = () => {
                 primaryEmail: '',
                 secundaryEmail: '',
                 description: '',
-                // Reinicia aquí los demás campos si es necesario
             });
         } catch (error) {
             setError('Error al crear usuario');
@@ -146,7 +142,7 @@ const CrearUsuario = () => {
                                     placeholder="ID de Rol"
                                 />
                             </div>
-                            {/* Agrega aquí otros campos necesarios para crear un usuario */}
+                
                             <div className="text-center">
                                 <button type="submit" className="btn btn-primary px-5 mb-5">Guardar</button>
                             </div>

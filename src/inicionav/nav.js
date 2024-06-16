@@ -1,42 +1,56 @@
-import React from 'react';
-import './nav.css'; // Importa los estilos CSS para el NavBar
-import { Dropdown } from 'react-bootstrap';
+import React, { useState } from 'react';
+import './nav.css';
 
 const Inicio = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location.href = '/login';
+  };
+
   return (
-    <nav className="navbar">
-      <div className="logo-btn-container">
-        <img src="https://huella.ucm.cl/assets/img/logo_ucm_b.png" alt="Logo" className="logo-img" />
-        <a href="/home" className="btn">Inicio</a>
-        <Dropdown className="dropdown">
-          <Dropdown.Toggle variant="primary" id="dropdown-basic">Options</Dropdown.Toggle>
-          <Dropdown.Menu>
-            <Dropdown.Item href="/proyect">Presentar Proyecto</Dropdown.Item>
-            <Dropdown.Item href="/proyect/view">Proyectos</Dropdown.Item>
-
-            <Dropdown.Item href="/carrera">Carreras</Dropdown.Item>
-
-            <Dropdown.Item href="/facultad/view">Facultades</Dropdown.Item>
-            <Dropdown.Item href="/facultad">Ingresar Facultad</Dropdown.Item>
-
-            <Dropdown.Item href="/sede/view">Sedes</Dropdown.Item>
-            <Dropdown.Item href="/sede">Ingresar Sede</Dropdown.Item>
-
-            <Dropdown.Item href="/area/view">Areas</Dropdown.Item>
-            <Dropdown.Item href="/area">Ingresar Area</Dropdown.Item>
-
-            <Dropdown.Item href="/usuarios/view">Usuarios</Dropdown.Item>
-            <Dropdown.Item href="/usuarios">Ingresar Usuarios</Dropdown.Item>
-
-            <Dropdown.Item href="/rol/view">Roles</Dropdown.Item>
-            <Dropdown.Item href="/rol">Ingresar Roles</Dropdown.Item>
-
-
-          </Dropdown.Menu>
-        </Dropdown>
+    <div className="app-container" onMouseLeave={() => setSidebarOpen(false)}>
+      <div className={`sidebar-menu ${sidebarOpen ? 'open' : ''}`}>
+        <a href="/proyect">Presentar Proyecto</a>
+        <a href="/proyect/view">Proyectos</a>
+        <a href="/carrera">Carreras</a>
+        <a href="/facultad/view">Facultades</a>
+        <a href="/facultad">Ingresar Facultad</a>
+        <a href="/sede/view">Sedes</a>
+        <a href="/sede">Ingresar Sede</a>
+        <a href="/area/view">Areas</a>
+        <a href="/area">Ingresar Area</a>
+        <a href="/usuarios/view">Usuarios</a>
+        <a href="/usuarios">Ingresar Usuarios</a>
+        <a href="/rol/view">Roles</a>
+        <a href="/rol">Ingresar Roles</a>
+        <a href="/ciudad/view">Ciudades</a>
+        <a href="/ciudad">Ingresar Ciudad</a>
+        <a href="/comuna/view">Comunas</a>
+        <a href="/comuna">Ingresar Comuna</a>
+        <a href="/alcance">Alcances</a>
+        <a href="/alcance/view">Ver Alcances</a>
+        <a href="/ambito">Ámbitos</a>
+        <a href="/ambito/view">Ver Ámbitos</a>
+        <a href="/etapa">Etapas</a>
+        <a href="/etapa/view">Ver Etapas</a>
+        <a href="/modalidad">Modalidades</a>
+        <a href="/modalidad/view">Ver Modalidades</a>
       </div>
-    </nav>
+
+      <div className="navbar">
+        <div className="menu-btn-container"> </div>
+        <div className="logo-btn-container" onMouseEnter={() => setSidebarOpen(true)}>
+          <img src="https://huella.ucm.cl/assets/img/logo_ucm_b.png" alt="Logo" className="logo-img" />
+        </div>
+        <div className="logout-btn-container">
+          <a href="/home" className="btn">Inicio</a>
+          <button className="btn logout-btn" onClick={handleLogout}>Cerrar Sesión</button>
+        </div>
+      </div>
+    </div>
   );
 };
-  
+
 export default Inicio;

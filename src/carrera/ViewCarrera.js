@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; // Importa el componente Link
+import { Link } from 'react-router-dom'; 
 import Inicio from '../inicionav/nav';
 
 
@@ -13,7 +13,7 @@ const Carreras = () => {
 
     const cargarCarreras = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/carrera'); // Ajusta la ruta de la API según corresponda
+            const response = await axios.get('http://localhost:3001/carrera'); 
             setCarreras(response.data);
         } catch (error) {
             console.error('Error al cargar carreras:', error.message);
@@ -24,7 +24,7 @@ const Carreras = () => {
         const confirmacion = window.confirm(`¿Estás seguro de que deseas eliminar la carrera "${nombreCarrera}"?`);
         if (confirmacion) {
             try {
-                await axios.delete(`http://localhost:3001/carrera/${id}`); // Ajusta la ruta de la API según corresponda
+                await axios.delete(`http://localhost:3001/carrera/${id}`); 
                 setCarreras(carreras.filter(carrera => carrera.id !== id));
                 console.log('Carrera eliminada exitosamente');
             } catch (error) {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-//import './formproyect.css'; // Asegúrate de importar tu archivo CSS para estilos personalizados
+
 import Inicio from '../inicionav/nav';
 
 const SedeForm = () => {

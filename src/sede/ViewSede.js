@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; // Importa el componente Link
+import { Link } from 'react-router-dom'; 
 import Inicio from '../inicionav/nav';
 
 const Sedes = () => {
@@ -12,7 +12,7 @@ const Sedes = () => {
 
     const cargarSedes = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/sede'); // Ajusta la ruta de la API según corresponda
+            const response = await axios.get('http://localhost:3001/sede'); 
             setSedes(response.data);
         } catch (error) {
             console.error('Error al cargar sedes:', error.message);
@@ -23,7 +23,7 @@ const Sedes = () => {
         const confirmacion = window.confirm(`¿Estás seguro de que deseas eliminar la sede "${nombreSede}"?`);
         if (confirmacion) {
             try {
-                await axios.delete(`http://localhost:3001/sede/${id}`); // Ajusta la ruta de la API según corresponda
+                await axios.delete(`http://localhost:3001/sede/${id}`); 
                 setSedes(sedes.filter(sede => sede.id !== id));
                 console.log('Sede eliminada exitosamente');
             } catch (error) {

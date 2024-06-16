@@ -27,6 +27,7 @@ const CrearCarrera = () => {
             setFacultades(response.data);
         } catch (error) {
             setError('Error al cargar facultades');
+            console.error('Error al cargar facultades:', error);
         }
     };
 
@@ -36,6 +37,7 @@ const CrearCarrera = () => {
             setSedes(response.data);
         } catch (error) {
             setError('Error al cargar sedes');
+            console.error('Error al cargar sedes:', error);
         }
     };
 
@@ -45,6 +47,7 @@ const CrearCarrera = () => {
             setAreas(response.data);
         } catch (error) {
             setError('Error al cargar áreas');
+            console.error('Error al cargar áreas:', error);
         }
     };
 
@@ -55,19 +58,29 @@ const CrearCarrera = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            await axios.post('http://localhost:3001/carrera', carreraData);
-            console.log('Carrera creada exitosamente');
-            setConfirmacion(true);
+        
+        // Validar que todos los campos estén llenos
+        if (!carreraData.name_careers || !carreraData.id_facultie || !carreraData.id_headquarter || !carreraData.id_area) {
+            setError('Todos los campos son obligatorios');
+            return;
+        }
 
+        try {
+            console.log('Enviando datos de carrera:', carreraData);
+            const response = await axios.post('http://localhost:3001/carrera', carreraData);
+            console.log('Respuesta del servidor:', response.data);
+
+            setConfirmacion(true);
             setCarreraData({
                 name_careers: '',
                 id_facultie: '',
                 id_headquarter: '',
                 id_area: '',
             });
+            setError(''); // Limpiar error
         } catch (error) {
             setError('Error al crear carrera');
+            console.error('Error al crear carrera:', error.response ? error.response.data : error.message);
         }
     };
 

@@ -14,9 +14,10 @@ const EditarUsuario = () => {
         description: ''
     });
     const [error, setError] = useState('');
-
     useEffect(() => {
+        
         cargarUsuario();
+        // eslint-disable-next-line 
     }, []);
 
     const cargarUsuario = async () => {
@@ -38,7 +39,6 @@ const EditarUsuario = () => {
         try {
             await axios.put(`http://localhost:3001/usuario/${id}`, usuario);
             console.log('Usuario actualizado exitosamente');
-            // Redireccionar a la vista de usuarios después de editar
             window.location = '/usuarios';
         } catch (error) {
             setError('Error al actualizar el usuario');
@@ -58,7 +58,7 @@ const EditarUsuario = () => {
                                     type="text"
                                     className="form-control"
                                     name="rut"
-                                    value={usuario.password}
+                                    value={usuario.rut}
                                     onChange={handleChange}
                                     placeholder="RUT"
                                 />
