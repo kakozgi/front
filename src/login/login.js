@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import './login.css';
 
 const ViewLogin = () => {
@@ -9,7 +9,7 @@ const ViewLogin = () => {
         password: '',
     });
     const [errorMessage, setErrorMessage] = useState('');
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../axiosInstance';
 import { useParams } from 'react-router-dom'; // Asegúrate de tener instalado 'react-router-dom'
 import Inicio from '../inicionav/nav';
 

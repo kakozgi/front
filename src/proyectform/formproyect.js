@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../axiosInstance';
 import './formproyect.css'; 
 import Inicio from '../inicionav/nav';
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../axiosInstance';
 import { Link } from 'react-router-dom'; // Asegúrate de tener instalado 'react-router-dom'
 import Inicio from '../inicionav/nav';
 
@@ -42,6 +42,9 @@ const ViewAmbito = () => {
                     <div className="col-md-8">
                         <h1 className="text-center mb-4">Lista de Ámbitos</h1>
                         {error && <div className="alert alert-danger">{error}</div>}
+                        <div className="text-end mb-3">
+                        <Link to="/ambito" className="btn btn-success">Nuevo Ambito</Link>
+                        </div>
                         <ul className="list-group">
                             {ambitos.map(ambito => (
                                 <li key={ambito.id} className="list-group-item d-flex justify-content-between align-items-center">

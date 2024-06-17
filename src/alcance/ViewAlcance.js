@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../axiosInstance';
 import { Link } from 'react-router-dom';
 import Inicio from '../inicionav/nav';
 
@@ -45,6 +45,9 @@ const ViewAlcance = () => {
                                 {error}
                             </div>
                         )}
+                        <div className="text-end mb-3">
+                        <Link to="/alcance" className="btn btn-success">Nuevo Alcance</Link>
+                        </div>
                         <ul className="list-group">
                             {alcances.map(alcance => (
                                 <li key={alcance.id} className="list-group-item d-flex justify-content-between align-items-center">

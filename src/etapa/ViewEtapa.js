@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../axiosInstance';
 import { Link } from 'react-router-dom'; 
 import Inicio from '../inicionav/nav';
 
@@ -39,6 +39,9 @@ const Etapas = () => {
                 <h1 className="text-center mt-5 mb-4">Lista de Etapas</h1>
                 <div className="row justify-content-center">
                     <div className="col-md-8">
+                    <div className="text-end mb-3">
+                        <Link to="/etapa" className="btn btn-success">Nueva Etapa</Link>
+                        </div>
                         <ul className="list-group">
                             {etapas.map(etapa => (
                                 <li key={etapa.id} className="list-group-item d-flex justify-content-between align-items-center">

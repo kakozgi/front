@@ -24,12 +24,11 @@ export const obtenerRolUsuario = () => {
 };
 export const guardarIdRolUsuario = (idRol) => {
     localStorage.setItem(AUTH_KEY, idRol);
-  };
+};
   
-  // Función para obtener el ID del rol del usuario desde localStorage
-  export const obtenerIdRolUsuario = () => {
+export const obtenerIdRolUsuario = () => {
     return localStorage.getItem(AUTH_KEY);
-  };
+};
   
 
 export const eliminarRolUsuario = () => {

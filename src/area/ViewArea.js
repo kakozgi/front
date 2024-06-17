@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../axiosInstance';
 import { Link } from 'react-router-dom';
 import Inicio from '../inicionav/nav';
-import { obtenerRolUsuario } from '../Auth'; // Asegúrate de que esta ruta sea correcta
+
 
 const Areas = () => {
     const [areas, setAreas] = useState([]);
-    const [userRole, setUserRole] = useState('');
 
     useEffect(() => {
-        // Obtener el rol del usuario del almacenamiento local al cargar el componente
-        const storedRole = obtenerRolUsuario();
-        setUserRole(storedRole);
-        
-        cargarAreas(); // Llamar a cargarAreas sin condición de rol, ya que userRole se establecerá cuando el rol se obtenga
+        cargarAreas(); 
     }, []);
 
     const cargarAreas = async () => {
@@ -37,12 +32,6 @@ const Areas = () => {
             }
         }
     };
-
-    // Función para imprimir el rol del usuario
-    const imprimirRolUsuario = () => {
-        console.log('Rol del usuario:', userRole);
-    };
-
     return (
         <div>
             <Inicio />
@@ -50,7 +39,9 @@ const Areas = () => {
                 <h1 className="text-center mt-5 mb-4">Lista de Áreas</h1>
                 <div className="row justify-content-center">
                     <div className="col-md-8">
-                        <button onClick={imprimirRolUsuario} className="btn btn-primary mb-3">Imprimir Rol</button>
+                        <div className="text-end mb-3">
+                        <Link to="/area" className="btn btn-success">Nueva Area</Link>
+                        </div>
                         <ul className="list-group">
                             {areas.map(area => (
                                 <li key={area.id} className="list-group-item d-flex justify-content-between align-items-center">

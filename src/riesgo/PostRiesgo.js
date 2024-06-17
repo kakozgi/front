@@ -2,29 +2,26 @@ import React, { useState } from 'react';
 import axios from '../axiosInstance';
 import Inicio from '../inicionav/nav';
 
-const CrearArea = () => {
-    const [areaData, setAreaData] = useState({
-        name_area: '',
-    });
+const CrearRiesgo = () => {
+    const [nombreRiesgo, setNombreRiesgo] = useState('');
     const [confirmacion, setConfirmacion] = useState(false);
+    const [error, setError] = useState('');
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setAreaData({ ...areaData, [name]: value });
+        setNombreRiesgo(e.target.value);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3001/area', areaData);
-            console.log('Área creada exitosamente');
+            await axios.post('http://localhost:3001/riesgo', { nameRiesgoAsociado: nombreRiesgo });
+            console.log('Riesgo creado exitosamente');
             setConfirmacion(true);
 
-            setAreaData({
-                name_area: '',
-            });
+            setNombreRiesgo('');
         } catch (error) {
-            console.error('Error al crear área:', error.message);
+            console.error('Error al crear riesgo:', error.message);
+            setError('Error al crear riesgo. Verifica los datos e intenta nuevamente.');
         }
     };
 
@@ -34,24 +31,29 @@ const CrearArea = () => {
             <div className="container mt-5">
                 <div className="row justify-content-center">
                     <div className="col-md-8">
-                        <h2 className="text-center">Formulario de Área</h2>
+                        <h2 className="text-center">Formulario de Riesgo</h2>
                         <form className="card-body p-lg-5" onSubmit={handleSubmit}>
                             <div className="mb-3">
                                 <input
                                     type="text"
                                     className="form-control"
-                                    name="name_area"
-                                    value={areaData.name_area}
+                                    name="nameRiesgoAsociado"
+                                    value={nombreRiesgo}
                                     onChange={handleChange}
-                                    placeholder="Nombre del Área"
+                                    placeholder="Nombre del Riesgo"
                                 />
                             </div>
                             <div className="text-center">
-                                <button type="submit" className="btn btn-color px-5 mb-5">Guardar</button>
+                                <button type="submit" className="btn btn-primary px-5">Guardar</button>
                             </div>
                             {confirmacion && (
-                                <div className="alert alert-success" role="alert">
-                                    ¡Área creada exitosamente!
+                                <div className="alert alert-success mt-3" role="alert">
+                                    ¡Riesgo creado exitosamente!
+                                </div>
+                            )}
+                            {error && (
+                                <div className="alert alert-danger mt-3" role="alert">
+                                    {error}
                                 </div>
                             )}
                         </form>
@@ -62,4 +64,4 @@ const CrearArea = () => {
     );
 };
 
-export default CrearArea;
+export default CrearRiesgo;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom'; // Importa el componente Link
+import axios from '../axiosInstance';
+import { Link } from 'react-router-dom'; 
 import Inicio from '../inicionav/nav';
 
 const Roles = () => {
@@ -12,7 +12,7 @@ const Roles = () => {
 
     const cargarRoles = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/rol'); // Ajusta la ruta de la API según corresponda
+            const response = await axios.get('http://localhost:3001/rol'); 
             setRoles(response.data);
         } catch (error) {
             console.error('Error al cargar Roles:', error.message);
@@ -23,7 +23,7 @@ const Roles = () => {
         const confirmacion = window.confirm(`¿Estás seguro de que deseas eliminar el Rol "${nombreRol}"?`);
         if (confirmacion) {
             try {
-                await axios.delete(`http://localhost:3001/rol/${id}`); // Ajusta la ruta de la API según corresponda
+                await axios.delete(`http://localhost:3001/rol/${id}`);
                 setRoles(roles.filter(rol => rol.id !== id));
                 console.log('Rol eliminado exitosamente');
             } catch (error) {
@@ -39,6 +39,9 @@ const Roles = () => {
                 <h1 className="text-center mt-5 mb-4">Lista de Roles</h1>
                 <div className="row justify-content-center">
                     <div className="col-md-8">
+                    <div className="text-end mb-3">
+                        <Link to="/rol" className="btn btn-success">Nuevo Rol</Link>
+                        </div>
                         <ul className="list-group">
                             {roles.map(rol => (
                                 <li key={rol.id} className="list-group-item d-flex justify-content-between align-items-center">

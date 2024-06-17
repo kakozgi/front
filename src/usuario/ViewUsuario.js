@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../axiosInstance';
 import { Link } from 'react-router-dom'; 
 import Inicio from '../inicionav/nav';
 
@@ -39,6 +39,9 @@ const Usuarios = () => {
                 <div className="row justify-content-center">
                     <div className="col-md-8">
                         <h2 className="text-center">Lista de Usuarios</h2>
+                        <div className="text-end mb-3">
+                        <Link to="/usuario" className="btn btn-success">Nuevo Usuario</Link>
+                        </div>
                         <ul className="list-group">
                             {usuarios.map(usuario => (
                                 <li key={usuario.id} className="list-group-item d-flex justify-content-between align-items-center">

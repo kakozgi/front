@@ -1,31 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../axiosInstance';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom'; // Asegúrate de tener instalado 'react-router-dom'
 import Inicio from '../inicionav/nav';
 
-const EditarModalidad = () => {
-    const { id } = useParams();
-    const [modalidad, setModalidad] = useState({
-        name_modality: '',
+const EditRiesgo = () => {
+    const { id } = useParams(); // Obtiene el parámetro de la URL
+    const [riesgo, setRiesgo] = useState({
+        nameRiesgoAsociado: '',
     });
+    const [error, setError] = useState('');
 
     useEffect(() => {
-        cargarModalidad();
+        cargarRiesgo();
         // eslint-disable-next-line
     }, []);
 
-    const cargarModalidad = async () => {
+    const cargarRiesgo = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/modalidad/${id}`); 
-            setModalidad(response.data);
+            const response = await axios.get(`http://localhost:3001/riesgo/${id}`);
+            setRiesgo(response.data);
         } catch (error) {
-            console.error('Error al cargar modalidad:', error.message);
+            console.error('Error al cargar riesgo:', error.message);
+            setError('Error al cargar el riesgo. Inténtalo de nuevo más tarde.');
         }
     };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setModalidad({ ...modalidad, [name]: value });
+        setRiesgo({ ...riesgo, [name]: value });
     };
 
     const handleSubmit = async (e) => {
@@ -33,11 +35,12 @@ const EditarModalidad = () => {
         const confirmacion = window.confirm('¿Estás seguro de que deseas guardar los cambios?');
         if (confirmacion) {
             try {
-                await axios.put(`http://localhost:3001/modalidad/${id}`, modalidad);
-                console.log('Modalidad actualizada exitosamente');
-                window.location = '/modalidad/view';
+                await axios.put(`http://localhost:3001/riesgo/${id}`, riesgo);
+                console.log('Riesgo actualizado exitosamente');
+                window.location = '/riesgo/view'; // Redirige a la vista de riesgos después de la actualización
             } catch (error) {
-                console.error('Error al actualizar la modalidad:', error.message);
+                console.error('Error al actualizar el riesgo:', error.message);
+                setError('Error al actualizar el riesgo. Inténtalo de nuevo más tarde.');
             }
         }
     };
@@ -48,16 +51,17 @@ const EditarModalidad = () => {
             <div className="container mt-5">
                 <div className="row justify-content-center">
                     <div className="col-md-8">
-                        <h2 className="text-center">Editar Modalidad</h2>
+                        <h1 className="text-center mb-4">Editar Riesgo</h1>
+                        {error && <div className="alert alert-danger">{error}</div>}
                         <form className="card-body p-lg-5" onSubmit={handleSubmit}>
                             <div className="mb-3">
                                 <input
                                     type="text"
                                     className="form-control"
-                                    name="name_modality"
-                                    value={modalidad.name_modality}
+                                    name="nameRiesgoAsociado"
+                                    value={riesgo.nameRiesgoAsociado}
                                     onChange={handleChange}
-                                    placeholder="Nombre Modalidad"
+                                    placeholder="Nombre del Riesgo Asociado"
                                 />
                             </div>
                             <div className="text-center">
@@ -71,4 +75,4 @@ const EditarModalidad = () => {
     );
 };
 
-export default EditarModalidad;
+export default EditRiesgo;

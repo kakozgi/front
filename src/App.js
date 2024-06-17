@@ -42,6 +42,13 @@ import EditarEtapa from './etapa/EditEtapa';
 import CrearModalidad from './modalidad/PostModalidad';
 import Modalidades from './modalidad/ViewModalidad';
 import EditarModalidad from './modalidad/EditModalidad';
+import EditarCiudad from './ciudad/EditCiudad';
+import CrearRegion from './region/PostRegion';
+import ViewRegion from './region/ViewRegion';
+import EditRegion from './region/EditRegion';
+import CrearRiesgo from './riesgo/PostRiesgo';
+import ViewRiesgo from './riesgo/ViewRiesgo';
+import EditRiesgo from './riesgo/EditRiesgo';
 
 const App = () => {
   return (
@@ -55,7 +62,7 @@ const App = () => {
           
           <Route path="/home" element={
             <PrivateRoute element={Home} allowedRoles={['1', '2', '3']} />} />
-            
+
           <Route path="/proyect" element={<PrivateRoute element={ProyectoForm} allowedRoles={['1', '2', '3']} />} /> 
           <Route path="/proyect/view" element={<PrivateRoute element={Proyectos} allowedRoles={['1', '2', '3']} />} />
           <Route path="/editar/:id" element={<PrivateRoute element={EditarProyecto} allowedRoles={['1', '2', '3']} />} />
@@ -85,6 +92,7 @@ const App = () => {
 
           <Route path="/ciudad/view" element={<PrivateRoute element={ViewCiudad} allowedRoles={['1', '2', '3']} />} />
           <Route path="/ciudad" element={<PrivateRoute element={CrearCiudad} allowedRoles={['1', '2', '3']} />} />
+          <Route path="/ciudad/edit/:id" element={<PrivateRoute element={EditarCiudad} allowedRoles={['1', '2', '3']} />} />
 
           <Route path="/comuna/view" element={<PrivateRoute element={Comunas} allowedRoles={['1', '2', '3']} />} />
           <Route path="/comuna" element={<PrivateRoute element={CrearComuna} allowedRoles={['1', '2', '3']} />} />
@@ -105,8 +113,15 @@ const App = () => {
           <Route path="/modalidad" element={<PrivateRoute element={CrearModalidad} allowedRoles={['1', '2', '3']} />} />
           <Route path="/modalidad/view" element={<PrivateRoute element={Modalidades} allowedRoles={['1', '2', '3']} />} />
           <Route path="/modalidad/edit/:id" element={<PrivateRoute element={EditarModalidad} allowedRoles={['1', '2', '3']} />} />
+
+          <Route path="/region" element={<PrivateRoute element={CrearRegion} />}></Route>
+          <Route path="/region/view" element={<PrivateRoute element={ViewRegion} />}></Route>
+          <Route path="/region/edit/:id" element={<PrivateRoute element={EditRegion} />}></Route>
+
+          <Route path="/riesgo" element={<PrivateRoute element={CrearRiesgo} />}></Route>
+          <Route path="/riesgo/view" element={<PrivateRoute element={ViewRiesgo} />}></Route>
+          <Route path="/riesgo/edit/:id" element={<PrivateRoute element={EditRiesgo} />}></Route>
           
-          {/* Ruta de no autorizado */}
           <Route path="/not-authorized" element={<div>No autorizado</div>} />
         </Routes>
       </Router>

@@ -1,7 +1,5 @@
-// components/CrearEtapa.js
-
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../axiosInstance';
 import Inicio from '../inicionav/nav';
 
 const CrearEtapa = () => {

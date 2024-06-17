@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; 
 import { useParams } from 'react-router-dom';
 import Inicio from '../inicionav/nav';
+import axios from '../axiosInstance';
 
 const EditarFacultad = () => {
     const { id } = useParams();

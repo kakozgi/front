@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import axios from '../axiosInstance';
 import Inicio from '../inicionav/nav';
 
 const CrearUsuario = () => {
@@ -8,14 +8,41 @@ const CrearUsuario = () => {
         password: '',
         lastname: '',
         rut: '',
-        id_career: '',
-        id_rol: '',
+        id_career: '', // Ahora será seleccionable
+        id_rol: '', // Ahora será seleccionable
         primaryEmail: '',
         secundaryEmail: '',
         description: '',
     });
     const [confirmacion, setConfirmacion] = useState(false);
     const [error, setError] = useState('');
+    const [careers, setCareers] = useState([]); // Lista de carreras
+    const [roles, setRoles] = useState([]); // Lista de roles
+
+    useEffect(() => {
+        cargarCarreras();
+        cargarRoles();
+    }, []);
+
+    const cargarCarreras = async () => {
+        try {
+            const response = await axios.get('http://localhost:3001/carreras'); // Cambiar la URL según tu backend
+            setCareers(response.data);
+        } catch (error) {
+            console.error('Error al cargar carreras:', error.message);
+            setError('Error al cargar carreras. Inténtalo de nuevo más tarde.');
+        }
+    };
+
+    const cargarRoles = async () => {
+        try {
+            const response = await axios.get('http://localhost:3001/rol'); // Cambiar la URL según tu backend
+            setRoles(response.data);
+        } catch (error) {
+            console.error('Error al cargar roles:', error.message);
+            setError('Error al cargar roles. Inténtalo de nuevo más tarde.');
+        }
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -25,7 +52,7 @@ const CrearUsuario = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3001/usuario', userData);
+            await axios.post('http://localhost:3001/usuario', userData); // Cambiar la URL según tu backend
             console.log('Usuario creado exitosamente');
             setConfirmacion(true);
             setUserData({
@@ -40,7 +67,8 @@ const CrearUsuario = () => {
                 description: '',
             });
         } catch (error) {
-            setError('Error al crear usuario');
+            console.error('Error al crear usuario:', error.message);
+            setError('Error al crear usuario. Verifica los datos e intenta nuevamente.');
         }
     };
 
@@ -60,6 +88,7 @@ const CrearUsuario = () => {
                                     value={userData.username}
                                     onChange={handleChange}
                                     placeholder="Nombre de usuario"
+                                    required
                                 />
                             </div>
                             <div className="mb-3">
@@ -70,6 +99,7 @@ const CrearUsuario = () => {
                                     value={userData.password}
                                     onChange={handleChange}
                                     placeholder="Contraseña"
+                                    required
                                 />
                             </div>
                             <div className="mb-3">
@@ -123,26 +153,37 @@ const CrearUsuario = () => {
                                 />
                             </div>
                             <div className="mb-3">
-                                <input
-                                    type="text"
-                                    className="form-control"
+                                <label htmlFor="id_career" className="form-label">Carrera:</label>
+                                <select
+                                    id="id_career"
                                     name="id_career"
+                                    className="form-control"
                                     value={userData.id_career}
                                     onChange={handleChange}
-                                    placeholder="ID de Carrera"
-                                />
+                                    required
+                                >
+                                    <option value="">Selecciona una carrera</option>
+                                    {careers.map(carrera => (
+                                        <option key={carrera.id} value={carrera.id}>{carrera.name}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div className="mb-3">
-                                <input
-                                    type="text"
-                                    className="form-control"
+                                <label htmlFor="id_rol" className="form-label">Rol:</label>
+                                <select
+                                    id="id_rol"
                                     name="id_rol"
+                                    className="form-control"
                                     value={userData.id_rol}
                                     onChange={handleChange}
-                                    placeholder="ID de Rol"
-                                />
+                                    required
+                                >
+                                    <option value="">Selecciona un rol</option>
+                                    {roles.map(rol => (
+                                        <option key={rol.id} value={rol.id}>{rol.name_role}</option>
+                                    ))}
+                                </select>
                             </div>
-                
                             <div className="text-center">
                                 <button type="submit" className="btn btn-primary px-5 mb-5">Guardar</button>
                             </div>
