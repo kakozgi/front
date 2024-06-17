@@ -3,16 +3,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './login.css';
 
-const guardarToken = (token) => {
-    console.log("Guardando token:", token);
-    localStorage.setItem('token', token);
-};
-
-const guardarRolUsuario = (rolId) => {
-    console.log("Guardando id_rol:", rolId);
-    localStorage.setItem('id_rol', rolId);
-};
-
 const ViewLogin = () => {
     const [formData, setFormData] = useState({
         username: '',
@@ -30,17 +20,16 @@ const ViewLogin = () => {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:3001/login', formData);
-            console.log("Response data:", response.data);
-            const { token, id_rol } = response.data;
-            guardarToken(token);
-            guardarRolUsuario(id_rol);
-            navigate('/home');
+            console.log('Usuario autenticado:', response.data);
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('role', response.data.usuario.id_rol);
+            window.location.href = '/home'; // Navegar a la página de inicio
         } catch (error) {
             setErrorMessage('Nombre de usuario o contraseña incorrectos');
             console.error('Error al iniciar sesión:', error.message);
         }
     };
-    
+
     return (
         <div className="container-fluid login-container">
             <div className="row">

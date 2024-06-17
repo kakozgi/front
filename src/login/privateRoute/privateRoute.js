@@ -1,26 +1,19 @@
-// privateRoute.js
-
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import { obtenerRolUsuario } from '/Users/macbookpro/Desktop/front/src/Auth.js'; // Importa la función para obtener el rol del usuario
 
-const PrivateRoute = ({ element, allowedRoles }) => {
-  const idRol = obtenerRolUsuario(); // Obtiene el rol del usuario del localStorage
+const PrivateRoute = ({ element: Component, allowedRoles }) => {
+  const token = localStorage.getItem('token');
+  const userRole = localStorage.getItem('role');
 
-  const hasPermission = () => {
-    if (!idRol) {
-      console.log('ID Rol no definido');
-      return false;
-    }
+  if (!token) {
+    return <Navigate to="/login" />;
+  }
 
-    return allowedRoles.includes(idRol.toString());
-  };
+  if (allowedRoles && !allowedRoles.includes(userRole)) {
+    return <Navigate to="/not-authorized" />;
+  }
 
-  return hasPermission() ? (
-    element
-  ) : (
-    <Navigate to="/login" state={{ from: window.location.pathname }} replace />
-  );
+  return <Component />;
 };
 
 export default PrivateRoute;
