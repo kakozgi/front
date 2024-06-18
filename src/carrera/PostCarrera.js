@@ -67,7 +67,7 @@ const CrearCarrera = () => {
 
         try {
             console.log('Enviando datos de carrera:', carreraData);
-            const response = await axios.post('http://localhost:3001/carrera', carreraData);
+            const response = await axios.post('/carrera', carreraData);
             console.log('Respuesta del servidor:', response.data);
 
             setConfirmacion(true);

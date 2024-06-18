@@ -11,13 +11,12 @@ const Inicio = () => {
 
   return (
     <div className="app-container" onMouseLeave={() => setSidebarOpen(false)}>
-      <div className={`sidebar-menu ${sidebarOpen ? 'open' : ''}`}>
-        <a href="/proyect">Presentar Proyecto</a>
+        <div className={`sidebar-menu ${sidebarOpen ? 'open' : ''}`}>
         <a href="/proyect/view">Proyectos</a>
         <a href="/carrera/view">Carreras</a>
         <a href="/facultad/view">Facultades</a>
         <a href="/sede/view">Sedes</a>
-        <a href="/area/view">Areas</a>
+        <a href="/area/view">Áreas</a>
         <a href="/usuarios/view">Usuarios</a>
         <a href="/rol/view">Roles</a>
         <a href="/ciudad/view">Ciudades</a>
@@ -26,6 +25,8 @@ const Inicio = () => {
         <a href="/ambito/view">Ámbitos</a>
         <a href="/etapa/view">Etapas</a>
         <a href="/modalidad/view">Modalidades</a>
+        <a href="/region/view">Regiones</a>
+        <a href="/riesgo/view">Riesgos</a>
       </div>
 
       <div className="navbar">

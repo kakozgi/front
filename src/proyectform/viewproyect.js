@@ -40,6 +40,7 @@ const Proyectos = () => {
                 <h1 className="text-center mt-5 mb-4">Lista de Proyectos</h1>
                 <div className="row justify-content-center">
                     <div className="col-md-8">
+                        
                         <ul className="list-group">
                             {proyectos.map(proyecto => (
                                 <li key={proyecto.id} className="list-group-item d-flex justify-content-between align-items-center">

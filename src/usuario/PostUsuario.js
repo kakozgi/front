@@ -26,7 +26,7 @@ const CrearUsuario = () => {
 
     const cargarCarreras = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/carreras'); // Cambiar la URL según tu backend
+            const response = await axios.get('http://localhost:3001/carrera'); // Cambiar la URL según tu backend
             setCareers(response.data);
         } catch (error) {
             console.error('Error al cargar carreras:', error.message);
@@ -164,7 +164,7 @@ const CrearUsuario = () => {
                                 >
                                     <option value="">Selecciona una carrera</option>
                                     {careers.map(carrera => (
-                                        <option key={carrera.id} value={carrera.id}>{carrera.name}</option>
+                                        <option key={carrera.id} value={carrera.id}>{carrera.name_careers}</option>
                                     ))}
                                 </select>
                             </div>

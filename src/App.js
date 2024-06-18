@@ -61,58 +61,58 @@ const App = () => {
           <Route path="/" element={<Navigate to="/login" />} />
           
           <Route path="/home" element={
-            <PrivateRoute element={Home} allowedRoles={['1', '2', '3']} />} />
+            <PrivateRoute element={Home}  />} />
 
-          <Route path="/proyect" element={<PrivateRoute element={ProyectoForm} allowedRoles={['1', '2', '3']} />} /> 
-          <Route path="/proyect/view" element={<PrivateRoute element={Proyectos} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/editar/:id" element={<PrivateRoute element={EditarProyecto} allowedRoles={['1', '2', '3']} />} />
+          <Route path="/proyect" element={<PrivateRoute element={ProyectoForm}  />} /> 
+          <Route path="/proyect/view" element={<PrivateRoute element={Proyectos}  />} />
+          <Route path="/editar/:id" element={<PrivateRoute element={EditarProyecto}  />} />
 
-          <Route path="/carrera/view" element={<PrivateRoute element={Carreras} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/carrera" element={<PrivateRoute element={CrearCarrera} allowedRoles={['1', '2', '3']} />} />
+          <Route path="/carrera/view" element={<PrivateRoute element={Carreras}  />} />
+          <Route path="/carrera" element={<PrivateRoute element={CrearCarrera} />} />
 
-          <Route path="/facultad/view" element={<PrivateRoute element={Facultades} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/facultad" element={<PrivateRoute element={FacultadForm} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/facultad/editar/:id" element={<PrivateRoute element={EditarFacultad} allowedRoles={['1', '2', '3']} />} />
+          <Route path="/facultad/view" element={<PrivateRoute element={Facultades} />} />
+          <Route path="/facultad" element={<PrivateRoute element={FacultadForm}  />} />
+          <Route path="/facultad/editar/:id" element={<PrivateRoute element={EditarFacultad} />} />
 
-          <Route path="/sede" element={<PrivateRoute element={SedeForm} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/sede/view" element={<PrivateRoute element={Sedes} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/sede/editar/:id" element={<PrivateRoute element={EditarSede} allowedRoles={['1', '2', '3']} />} />
+          <Route path="/sede" element={<PrivateRoute element={SedeForm}  />} />
+          <Route path="/sede/view" element={<PrivateRoute element={Sedes}  />} />
+          <Route path="/sede/editar/:id" element={<PrivateRoute element={EditarSede}  />} />
 
-          <Route path="/area/view" element={<PrivateRoute element={Areas} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/area" element={<PrivateRoute element={CrearArea} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/area/editar/:id" element={<PrivateRoute element={EditarArea} allowedRoles={['1', '2', '3']} />} />
+          <Route path="/area/view" element={<PrivateRoute element={Areas}  />} />
+          <Route path="/area" element={<PrivateRoute element={CrearArea} />} />
+          <Route path="/area/editar/:id" element={<PrivateRoute element={EditarArea}  />} />
 
-          <Route path="/usuarios/view" element={<PrivateRoute element={Usuarios} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/usuarios/editar/:id" element={<PrivateRoute element={EditarUsuario} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/usuarios" element={<PrivateRoute element={CrearUsuario} allowedRoles={['1', '2', '3']} />} />
+          <Route path="/usuarios/view" element={<PrivateRoute element={Usuarios}  />} />
+          <Route path="/usuarios/editar/:id" element={<PrivateRoute element={EditarUsuario}  />} />
+          <Route path="/usuarios" element={<PrivateRoute element={CrearUsuario} />} />
 
-          <Route path="/rol/view" element={<PrivateRoute element={Roles} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/rol" element={<PrivateRoute element={CrearRol} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/rol/editar/:id" element={<PrivateRoute element={EditarRol} allowedRoles={['1', '2', '3']} />} />
+          <Route path="/rol/view" element={<PrivateRoute element={Roles}  />} />
+          <Route path="/rol" element={<PrivateRoute element={CrearRol} />} />
+          <Route path="/rol/editar/:id" element={<PrivateRoute element={EditarRol} />} />
 
-          <Route path="/ciudad/view" element={<PrivateRoute element={ViewCiudad} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/ciudad" element={<PrivateRoute element={CrearCiudad} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/ciudad/edit/:id" element={<PrivateRoute element={EditarCiudad} allowedRoles={['1', '2', '3']} />} />
+          <Route path="/ciudad/view" element={<PrivateRoute element={ViewCiudad}  />} />
+          <Route path="/ciudad" element={<PrivateRoute element={CrearCiudad}  />} />
+          <Route path="/ciudad/edit/:id" element={<PrivateRoute element={EditarCiudad}  />} />
 
-          <Route path="/comuna/view" element={<PrivateRoute element={Comunas} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/comuna" element={<PrivateRoute element={CrearComuna} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/comuna/editar/:id" element={<PrivateRoute element={EditarComuna} allowedRoles={['1', '2', '3']} />} />
+          <Route path="/comuna/view" element={<PrivateRoute element={Comunas}  />} />
+          <Route path="/comuna" element={<PrivateRoute element={CrearComuna} />} />
+          <Route path="/comuna/editar/:id" element={<PrivateRoute element={EditarComuna}  />} />
 
-          <Route path="/alcance" element={<PrivateRoute element={PostAlcance} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/alcance/view" element={<PrivateRoute element={ViewAlcance} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/alcance/edit/:id" element={<PrivateRoute element={EditarAlcance} allowedRoles={['1', '2', '3']} />} />
+          <Route path="/alcance" element={<PrivateRoute element={PostAlcance}  />} />
+          <Route path="/alcance/view" element={<PrivateRoute element={ViewAlcance}  />} />
+          <Route path="/alcance/edit/:id" element={<PrivateRoute element={EditarAlcance} />} />
 
-          <Route path="/ambito" element={<PrivateRoute element={CrearAmbito} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/ambito/view" element={<PrivateRoute element={ViewAmbito} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/ambito/edit/:id" element={<PrivateRoute element={EditAmbito} allowedRoles={['1', '2', '3']} />} />
+          <Route path="/ambito" element={<PrivateRoute element={CrearAmbito} />} />
+          <Route path="/ambito/view" element={<PrivateRoute element={ViewAmbito}  />} />
+          <Route path="/ambito/edit/:id" element={<PrivateRoute element={EditAmbito} />} />
 
-          <Route path="/etapa" element={<PrivateRoute element={CrearEtapa} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/etapa/view" element={<PrivateRoute element={Etapas} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/etapa/edit/:id" element={<PrivateRoute element={EditarEtapa} allowedRoles={['1', '2', '3']} />} />
+          <Route path="/etapa" element={<PrivateRoute element={CrearEtapa}/>} />
+          <Route path="/etapa/view" element={<PrivateRoute element={Etapas}  />} />
+          <Route path="/etapa/edit/:id" element={<PrivateRoute element={EditarEtapa} />} />
 
-          <Route path="/modalidad" element={<PrivateRoute element={CrearModalidad} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/modalidad/view" element={<PrivateRoute element={Modalidades} allowedRoles={['1', '2', '3']} />} />
-          <Route path="/modalidad/edit/:id" element={<PrivateRoute element={EditarModalidad} allowedRoles={['1', '2', '3']} />} />
+          <Route path="/modalidad" element={<PrivateRoute element={CrearModalidad} />} />
+          <Route path="/modalidad/view" element={<PrivateRoute element={Modalidades} />} />
+          <Route path="/modalidad/edit/:id" element={<PrivateRoute element={EditarModalidad}  />} />
 
           <Route path="/region" element={<PrivateRoute element={CrearRegion} />}></Route>
           <Route path="/region/view" element={<PrivateRoute element={ViewRegion} />}></Route>
