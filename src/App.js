@@ -49,6 +49,29 @@ import EditRegion from './region/EditRegion';
 import CrearRiesgo from './riesgo/PostRiesgo';
 import ViewRiesgo from './riesgo/ViewRiesgo';
 import EditRiesgo from './riesgo/EditRiesgo';
+import PostActividadComprometida from './actividadComprometida/PostActividadComprometida';
+import ViewActividadesComprometidas from './actividadComprometida/ViewActividadesComprometidas';
+import EditarCarrera from './carrera/EditCarrera';
+import CreateAlineamiento from './alineamiento/PostAlieamiento';
+import ViewAlineamiento from './alineamiento/ViewAlineamiento';
+import EditAlineamiento from './alineamiento/EditAlineamiento';
+import PostAprobacion from './aprobacion/PostAprobacion';
+import ViewAprobaciones from './aprobacion/ViewAprobacion';
+import EditAprobacion from './aprobacion/EditAprobacion';
+import PostFinanciamientoFuente from './financiamiento/PostFinanciamiento';
+import PostRecursosComprometidos from './recursosComprometidos/PostRecursosComprometidos';
+import ViewRecursosComprometidos from './recursosComprometidos/ViewRecursosComprometidos';
+import EditRecursosComprometidos from './recursosComprometidos/EditRecursosComprometidos';
+import ViewRestriccionesAprobacion from './restriccionAprobacion/ViewRestriccionAprobacion';
+import PostRestriccionAprobacion from './restriccionAprobacion/PostRestriccionAprobacion';
+import EditRestriccionAprobacion from './restriccionAprobacion/EditRestriccionAprobacion';
+import ViewFinanciamientoFuente from './financiamiento/ViewFinanciamiento';
+import EditFinanciamientoFuente from './financiamiento/EditFinanciamiento';
+import PostDificultadNivel from './dificultad/PostDificultad';
+import PostDireccion from './direccion/PostDireccion';
+import ViewDificultadNivel from './dificultad/ViewDificultad';
+import EditDificultadNivel from './dificultad/EditDificultad';
+import EditActividadComprometida from './actividadComprometida/EditActividadComprometida';
 
 const App = () => {
   return (
@@ -69,6 +92,7 @@ const App = () => {
 
           <Route path="/carrera/view" element={<PrivateRoute element={Carreras}  />} />
           <Route path="/carrera" element={<PrivateRoute element={CrearCarrera} />} />
+          <Route path="/carrera/edit/:id" element={<PrivateRoute element={EditarCarrera}  />} />
 
           <Route path="/facultad/view" element={<PrivateRoute element={Facultades} />} />
           <Route path="/facultad" element={<PrivateRoute element={FacultadForm}  />} />
@@ -121,7 +145,37 @@ const App = () => {
           <Route path="/riesgo" element={<PrivateRoute element={CrearRiesgo} />}></Route>
           <Route path="/riesgo/view" element={<PrivateRoute element={ViewRiesgo} />}></Route>
           <Route path="/riesgo/edit/:id" element={<PrivateRoute element={EditRiesgo} />}></Route>
+
+          <Route path="/actividadcomprometida" element={<PrivateRoute element={PostActividadComprometida} />}></Route>
+          <Route path="/actividadcomprometida/view" element={<PrivateRoute element={ViewActividadesComprometidas} />}></Route>
+          <Route path="/actividadcomprometida/edit/:id" element={<PrivateRoute element={EditActividadComprometida} />}></Route>
+
+          <Route path="/alineamiento" element={<PrivateRoute element={CreateAlineamiento} />}></Route>
+          <Route path="/alineamiento/view" element={<PrivateRoute element={ViewAlineamiento} />}></Route>
+          <Route path="/alineamiento/edit/:id" element={<PrivateRoute element={EditAlineamiento} />}></Route>
+
+          <Route path="/aprobaciones" element={<PrivateRoute element={PostAprobacion} />}></Route>
+          <Route path="/aprobaciones/view" element={<PrivateRoute element={ViewAprobaciones} />}></Route>
+          <Route path="/aprobacion/edit/:id" element={<PrivateRoute element={EditAprobacion} />}></Route>
+
+          <Route path="/fuentefinanciamiento" element={<PrivateRoute element={PostFinanciamientoFuente} />}></Route>
+          <Route path="/fuentefinanciamiento/view" element={<PrivateRoute element={ViewFinanciamientoFuente} />}></Route>
+          <Route path="/fuentefinanciamiento/edit/:id" element={<PrivateRoute element={EditFinanciamientoFuente} />}></Route>
+
+          <Route path="/recursoscomprometidos" element={<PrivateRoute element={PostRecursosComprometidos} />}></Route>
+          <Route path="/recursoscomprometidos/view" element={<PrivateRoute element={ViewRecursosComprometidos} />}></Route>
+          <Route path="/recursoscomprometidos/edit/:id" element={<PrivateRoute element={EditRecursosComprometidos} />}></Route>
+
+          <Route path="/restriccionaprobacion/view" element={<PrivateRoute element={ViewRestriccionesAprobacion} />}></Route>  
+          <Route path="/restriccionaprobacion" element={<PrivateRoute element={PostRestriccionAprobacion} />}></Route>
+          <Route path="/restriccionaprobacion/edit/:id" element={<PrivateRoute element={EditRestriccionAprobacion} />}></Route>
+
+          <Route path="/dificultad" element={<PrivateRoute element={PostDificultadNivel} />}></Route>
+          <Route path="/dificultad/view" element={<PrivateRoute element={ViewDificultadNivel} />}></Route>
+          <Route path="/dificultad/edit/:id" element={<PrivateRoute element={EditDificultadNivel} />}></Route>
           
+          <Route path="/direccion" element={<PrivateRoute element={PostDireccion} />}></Route>
+
           <Route path="/not-authorized" element={<div>No autorizado</div>} />
         </Routes>
       </Router>
