@@ -9,15 +9,23 @@ const EditarUsuario = () => {
         rut: '',
         username: '',
         lastname: '',
+        password: '', // Added password field
+        id_career: '',
+        id_rol: '',
         primaryEmail: '',
         secundaryEmail: '',
         description: ''
     });
+    const [roles, setRoles] = useState([]);
+    const [carreras, setCarreras] = useState([]);
     const [error, setError] = useState('');
+
     useEffect(() => {
-        
         cargarUsuario();
-        // eslint-disable-next-line 
+        cargarRoles();
+        cargarCarreras();
+
+        // eslint-disable-next-line
     }, []);
 
     const cargarUsuario = async () => {
@@ -26,6 +34,24 @@ const EditarUsuario = () => {
             setUsuario(response.data);
         } catch (error) {
             setError('Error al cargar el usuario');
+        }
+    };
+
+    const cargarRoles = async () => {
+        try {
+            const response = await axios.get('http://localhost:3001/rol');
+            setRoles(response.data);
+        } catch (error) {
+            setError('Error al cargar los roles');
+        }
+    };
+
+    const cargarCarreras = async () => {
+        try {
+            const response = await axios.get('http://localhost:3001/carrera');
+            setCarreras(response.data);
+        } catch (error) {
+            setError('Error al cargar las carreras');
         }
     };
 
@@ -39,7 +65,7 @@ const EditarUsuario = () => {
         try {
             await axios.put(`http://localhost:3001/usuario/${id}`, usuario);
             console.log('Usuario actualizado exitosamente');
-            window.location = '/usuarios';
+            window.location=('/usuarios/view');
         } catch (error) {
             setError('Error al actualizar el usuario');
         }
@@ -61,6 +87,7 @@ const EditarUsuario = () => {
                                     value={usuario.rut}
                                     onChange={handleChange}
                                     placeholder="RUT"
+                                    required
                                 />
                             </div>
                             <div className="mb-3">
@@ -71,6 +98,7 @@ const EditarUsuario = () => {
                                     value={usuario.username}
                                     onChange={handleChange}
                                     placeholder="Nombre de usuario"
+                                    required
                                 />
                             </div>
                             <div className="mb-3">
@@ -81,21 +109,65 @@ const EditarUsuario = () => {
                                     value={usuario.lastname}
                                     onChange={handleChange}
                                     placeholder="Apellido"
+                                    required
                                 />
                             </div>
                             <div className="mb-3">
                                 <input
-                                    type="text"
+                                    type="password"
+                                    className="form-control"
+                                    name="password"
+                                    value={usuario.password}
+                                    onChange={handleChange}
+                                    placeholder="Contraseña"
+                                />
+                            </div>
+                            <div className="mb-3">
+                                <select
+                                    className="form-control"
+                                    name="id_career"
+                                    value={usuario.id_career}
+                                    onChange={handleChange}
+                                    required
+                                >
+                                    <option value="">Seleccionar Carrera</option>
+                                    {carreras.map(carrera => (
+                                        <option key={carrera.id} value={carrera.id}>
+                                            {carrera.name_careers}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className="mb-3">
+                                <select
+                                    className="form-control"
+                                    name="id_rol"
+                                    value={usuario.id_rol}
+                                    onChange={handleChange}
+                                    required
+                                >
+                                    <option value="">Seleccionar Rol</option>
+                                    {roles.map(rol => (
+                                        <option key={rol.id} value={rol.id}>
+                                            {rol.name_role}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className="mb-3">
+                                <input
+                                    type="email"
                                     className="form-control"
                                     name="primaryEmail"
                                     value={usuario.primaryEmail}
                                     onChange={handleChange}
                                     placeholder="Email principal"
+                                    required
                                 />
                             </div>
                             <div className="mb-3">
                                 <input
-                                    type="text"
+                                    type="email"
                                     className="form-control"
                                     name="secundaryEmail"
                                     value={usuario.secundaryEmail}

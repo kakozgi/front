@@ -37,29 +37,37 @@ const Usuarios = () => {
             <Inicio />
             <div className="container mt-5">
                 <div className="row justify-content-center">
-                    <div className="col-md-8">
+                    <div className="col-md-10">
                         <h2 className="text-center">Lista de Usuarios</h2>
                         <div className="text-end mb-3">
-                        <Link to="/usuario" className="btn btn-success">Nuevo Usuario</Link>
+                            <Link to="/usuarios" className="btn btn-success">Nuevo Usuario</Link>
                         </div>
-                        <ul className="list-group">
-                            {usuarios.map(usuario => (
-                                <li key={usuario.id} className="list-group-item d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <h5>{usuario.username}</h5>
-                                        <p>RUT: {usuario.rut}</p>
-                                        <p>Apellido: {usuario.lastname}</p>
-                                        <p>Email Principal: {usuario.primaryEmail}</p>
-                                        <p>Email Secundario: {usuario.secundaryEmail}</p>
-                                        <p>Descripción: {usuario.description}</p>
-                                    </div>
-                                    <div>
-                                        <Link to={`/usuarios/editar/${usuario.id}`} className="btn btn-primary btn-sm">Editar</Link>
-                                        <button onClick={() => handleEliminarUsuario(usuario.id)} className="btn btn-danger btn-sm ms-2">Eliminar</button>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
+                        <table className="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nombre de Usuario</th>
+                                    <th>RUT</th>
+                                    <th>Carrera</th>
+                                    <th>Email Principal</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {usuarios.map(usuario => (
+                                    <tr key={usuario.id}>
+                                        <td>{usuario.username}</td>
+                                        <td>{usuario.rut}</td>
+                                        <td>{usuario.Carrera?.name_careers}</td> 
+                                        <td>{usuario.primaryEmail}</td>
+                                        <td>
+                                            <Link to={`/usuarios/editar/${usuario.id}`} className="btn btn-primary btn-sm">Editar</Link>
+                                            <Link to={`/usuarios/${usuario.id}`} className="btn btn-info btn-sm ms-2">Detalles</Link>
+                                            <button onClick={() => handleEliminarUsuario(usuario.id)} className="btn btn-danger btn-sm ms-2">Eliminar</button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                         {error && (
                             <div className="alert alert-danger mt-3" role="alert">
                                 {error}

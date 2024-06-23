@@ -72,6 +72,9 @@ import PostDireccion from './direccion/PostDireccion';
 import ViewDificultadNivel from './dificultad/ViewDificultad';
 import EditDificultadNivel from './dificultad/EditDificultad';
 import EditActividadComprometida from './actividadComprometida/EditActividadComprometida';
+import ViewDireccion from './direccion/ViewDireccion';
+import EditDireccion from './direccion/EditDireccion';
+import DetallesUsuario from './usuario/GETIDusuario';
 
 const App = () => {
   return (
@@ -109,6 +112,7 @@ const App = () => {
           <Route path="/usuarios/view" element={<PrivateRoute element={Usuarios}  />} />
           <Route path="/usuarios/editar/:id" element={<PrivateRoute element={EditarUsuario}  />} />
           <Route path="/usuarios" element={<PrivateRoute element={CrearUsuario} />} />
+          <Route path="/usuarios/:id" element={<PrivateRoute element={DetallesUsuario}  />} />
 
           <Route path="/rol/view" element={<PrivateRoute element={Roles}  />} />
           <Route path="/rol" element={<PrivateRoute element={CrearRol} />} />
@@ -175,6 +179,8 @@ const App = () => {
           <Route path="/dificultad/edit/:id" element={<PrivateRoute element={EditDificultadNivel} />}></Route>
           
           <Route path="/direccion" element={<PrivateRoute element={PostDireccion} />}></Route>
+          <Route path="/direccion/view" element={<PrivateRoute element={ViewDireccion} />}></Route>
+          <Route path="/direccion/edit/:id" element={<PrivateRoute element={EditDireccion} />}></Route>
 
           <Route path="/not-authorized" element={<div>No autorizado</div>} />
         </Routes>
