@@ -18,6 +18,16 @@
   height: 45px;
 }
 
+.sidebar-menu .logo-btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-menu .logo-img {
+  height: 45px;
+}
+
+
 .navbar .btn {
   background-color: rgb(38, 63, 133);
   color: #fff;
@@ -93,7 +103,7 @@
 .dropdown-container {
   position: relative;
   margin-left: -10px; /* Ajusta este valor para mover a la izquierda */
-  margin-top: -10px; 
+  margin-top: 10px; 
 }
 
 .dropdown-toggle {

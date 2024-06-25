@@ -2,79 +2,105 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './login/login';
 import './App.css';
-import ProyectoForm from './proyectform/formproyect';
-import Proyectos from './proyectform/viewproyect';
-import EditarProyecto from './proyectform/editproyect';
+import ProyectoForm from './proyecto/proyectform/formproyect';
+import Proyectos from './proyecto/proyectform/viewproyect';
+import EditarProyecto from './proyecto/proyectform/editproyect';
 import Home from './paginaInicio/pagina';
-import Carreras from './carrera/ViewCarrera';
-import Facultades from './facultad/ViewFacultad';
-import FacultadForm from './facultad/PostFacultad';
-import EditarFacultad from './facultad/EditFacultad';
-import SedeForm from './sede/PostSede';
-import Sedes from './sede/ViewSede';
-import EditarSede from './sede/EditSede';
-import Areas from './area/ViewArea';
-import CrearArea from './area/PostArea';
-import EditarArea from './area/EditArea';
-import CrearCarrera from './carrera/PostCarrera';
-import Usuarios from './usuario/ViewUsuario';
-import EditarUsuario from './usuario/EditUsuario';
-import CrearUsuario from './usuario/PostUsuario';
+import Carreras from './ucm/carrera/ViewCarrera';
+import Facultades from './proyecto/facultad/ViewFacultad';
+import FacultadForm from './proyecto/facultad/PostFacultad';
+import EditarFacultad from './proyecto/facultad/EditFacultad';
+import SedeForm from './ucm/sede/PostSede';
+import Sedes from './ucm/sede/ViewSede';
+import EditarSede from './ucm/sede/EditSede';
+import Areas from './proyecto/area/ViewArea';
+import CrearArea from './proyecto/area/PostArea';
+import EditarArea from './proyecto/area/EditArea';
+import CrearCarrera from './ucm/carrera/PostCarrera';
+import Usuarios from './users/usuario/ViewUsuario';
+import EditarUsuario from './users/usuario/EditUsuario';
+import CrearUsuario from './users/usuario/PostUsuario';
 import Register from './login/registro';
 import Roles from './rol/ViewRol';
 import CrearRol from './rol/PostRol';
 import EditarRol from './rol/EditRol';
 import PrivateRoute from './login/privateRoute/privateRoute';
-import ViewCiudad from './ciudad/ViewCiudad';
-import CrearCiudad from './ciudad/PostCiudad';
-import CrearComuna from './comuna/PostComuna';
-import Comunas from './comuna/ViewComuna';
-import EditarComuna from './comuna/EditComuna';
-import PostAlcance from './alcance/PostAlcance';
-import ViewAlcance from './alcance/ViewAlcance';
-import EditarAlcance from './alcance/EditAlcance';
-import CrearAmbito from './ambito/PostAmbito';
-import ViewAmbito from './ambito/ViewAmbito';
-import EditAmbito from './ambito/EditAmbito';
-import CrearEtapa from './etapa/PostEtapa';
-import Etapas from './etapa/ViewEtapa';
-import EditarEtapa from './etapa/EditEtapa';
-import CrearModalidad from './modalidad/PostModalidad';
-import Modalidades from './modalidad/ViewModalidad';
-import EditarModalidad from './modalidad/EditModalidad';
-import EditarCiudad from './ciudad/EditCiudad';
-import CrearRegion from './region/PostRegion';
-import ViewRegion from './region/ViewRegion';
-import EditRegion from './region/EditRegion';
-import CrearRiesgo from './riesgo/PostRiesgo';
-import ViewRiesgo from './riesgo/ViewRiesgo';
-import EditRiesgo from './riesgo/EditRiesgo';
-import PostActividadComprometida from './actividadComprometida/PostActividadComprometida';
-import ViewActividadesComprometidas from './actividadComprometida/ViewActividadesComprometidas';
-import EditarCarrera from './carrera/EditCarrera';
-import CreateAlineamiento from './alineamiento/PostAlieamiento';
-import ViewAlineamiento from './alineamiento/ViewAlineamiento';
-import EditAlineamiento from './alineamiento/EditAlineamiento';
-import PostAprobacion from './aprobacion/PostAprobacion';
-import ViewAprobaciones from './aprobacion/ViewAprobacion';
-import EditAprobacion from './aprobacion/EditAprobacion';
-import PostFinanciamientoFuente from './financiamiento/PostFinanciamiento';
-import PostRecursosComprometidos from './recursosComprometidos/PostRecursosComprometidos';
-import ViewRecursosComprometidos from './recursosComprometidos/ViewRecursosComprometidos';
-import EditRecursosComprometidos from './recursosComprometidos/EditRecursosComprometidos';
-import ViewRestriccionesAprobacion from './restriccionAprobacion/ViewRestriccionAprobacion';
-import PostRestriccionAprobacion from './restriccionAprobacion/PostRestriccionAprobacion';
-import EditRestriccionAprobacion from './restriccionAprobacion/EditRestriccionAprobacion';
-import ViewFinanciamientoFuente from './financiamiento/ViewFinanciamiento';
-import EditFinanciamientoFuente from './financiamiento/EditFinanciamiento';
-import PostDificultadNivel from './dificultad/PostDificultad';
-import PostDireccion from './direccion/PostDireccion';
-import ViewDificultadNivel from './dificultad/ViewDificultad';
-import EditDificultadNivel from './dificultad/EditDificultad';
-import EditActividadComprometida from './actividadComprometida/EditActividadComprometida';
-import ViewDireccion from './direccion/ViewDireccion';
-import EditDireccion from './direccion/EditDireccion';
-import DetallesUsuario from './usuario/GETIDusuario';
+import ViewCiudad from './address/ciudad/ViewCiudad';
+import CrearCiudad from './address/ciudad/PostCiudad';
+import CrearComuna from './address/comuna/PostComuna';
+import Comunas from './address/comuna/ViewComuna';
+import EditarComuna from './address/comuna/EditComuna';
+import PostAlcance from './proyecto/alcance/PostAlcance';
+import ViewAlcance from './proyecto/alcance/ViewAlcance';
+import EditarAlcance from './proyecto/alcance/EditAlcance';
+import CrearAmbito from './proyecto/ambito/PostAmbito';
+import ViewAmbito from './proyecto/ambito/ViewAmbito';
+import EditAmbito from './proyecto/ambito/EditAmbito';
+import CrearEtapa from './proyecto/etapa/PostEtapa';
+import Etapas from './proyecto/etapa/ViewEtapa';
+import EditarEtapa from './proyecto/etapa/EditEtapa';
+import CrearModalidad from './proyecto/modalidad/PostModalidad';
+import Modalidades from './proyecto/modalidad/ViewModalidad';
+import EditarModalidad from './proyecto/modalidad/EditModalidad';
+import EditarCiudad from './address/ciudad/EditCiudad';
+import CrearRegion from './address/region/PostRegion';
+import ViewRegion from './address/region/ViewRegion';
+import EditRegion from './address/region/EditRegion';
+import CrearRiesgo from './proyecto/riesgo/PostRiesgo';
+import ViewRiesgo from './proyecto/riesgo/ViewRiesgo';
+import EditRiesgo from './proyecto/riesgo/EditRiesgo';
+import PostActividadComprometida from './proyecto/actividadComprometida/PostActividadComprometida';
+import ViewActividadesComprometidas from './proyecto/actividadComprometida/ViewActividadesComprometidas';
+import EditarCarrera from './ucm/carrera/EditCarrera';
+import CreateAlineamiento from './proyecto/alineamiento/PostAlieamiento';
+import ViewAlineamiento from './proyecto/alineamiento/ViewAlineamiento';
+import EditAlineamiento from './proyecto/alineamiento/EditAlineamiento';
+import PostAprobacion from './proyecto/aprobacion/PostAprobacion';
+import ViewAprobaciones from './proyecto/aprobacion/ViewAprobacion';
+import EditAprobacion from './proyecto/aprobacion/EditAprobacion';
+import PostFinanciamientoFuente from './proyecto/financiamiento/PostFinanciamiento';
+import PostRecursosComprometidos from './proyecto/recursosComprometidos/PostRecursosComprometidos';
+import ViewRecursosComprometidos from './proyecto/recursosComprometidos/ViewRecursosComprometidos';
+import EditRecursosComprometidos from './proyecto/recursosComprometidos/EditRecursosComprometidos';
+import ViewRestriccionesAprobacion from './proyecto/restriccionAprobacion/ViewRestriccionAprobacion';
+import PostRestriccionAprobacion from './proyecto/restriccionAprobacion/PostRestriccionAprobacion';
+import EditRestriccionAprobacion from './proyecto/restriccionAprobacion/EditRestriccionAprobacion';
+import ViewFinanciamientoFuente from './proyecto/financiamiento/ViewFinanciamiento';
+import EditFinanciamientoFuente from './proyecto/financiamiento/EditFinanciamiento';
+import PostDificultadNivel from './proyecto/dificultad/PostDificultad';
+import PostDireccion from './address/direccion/PostDireccion';
+import ViewDificultadNivel from './proyecto/dificultad/ViewDificultad';
+import EditDificultadNivel from './proyecto/dificultad/EditDificultad';
+import EditActividadComprometida from './proyecto/actividadComprometida/EditActividadComprometida';
+import ViewDireccion from './address/direccion/ViewDireccion';
+import EditDireccion from './address/direccion/EditDireccion';
+import DetallesUsuario from './users/usuario/GETIDusuario';
+import CrearAsignaturaParticipante from './ucm/asignaturaParticipante/PostAsignaturaParticipante';
+import CrearDivulgacion from './ucm/divulgaciones/PostDivulgaciones';
+import Divulgaciones from './ucm/divulgaciones/ViewDivulgaciones';
+import EditarDivulgacion from './ucm/divulgaciones/EditDivulgaciones';
+import PostAlumnoParticipante from './users/alumnosParticipantes/PostAlumnoParticipante';
+import PostAlumnoVoluntario from './users/alumnoVoluntario/PostAlumnoVoluntario';
+import PostBeneficiario from './users/beneficiario/PostBeneficiario';
+import ViewBeneficiarios from './users/beneficiario/ViewBeneficiario';
+import EditBeneficiario from './users/beneficiario/EditBeneficiario';
+import CrearEntidadPostulante from './users/entidadPostulante/PostEntidadPostulante';
+import ViewEntidadesPostulantes from './users/entidadPostulante/ViewEntidadPostulante';
+import EditEntidadPostulante from './users/entidadPostulante/EditEntidadPostulante';
+import CrearProfesorParticipante from './users/profesorParticipante/PostProfesorParticipante';
+import ViewAsignaturaParticipante from './ucm/asignaturaParticipante/ViewAsignaturaParticipante';
+import EditarAsignaturaParticipante from './ucm/asignaturaParticipante/EditAsignaturaParticipante';
+import ViewAlumnosVoluntarios from './users/alumnoVoluntario/ViewAlumnoVoluntario';
+import EditAlumnoVoluntario from './users/alumnoVoluntario/EditAlumnoVoluntario';
+import ViewProfesorParticipante from './users/profesorParticipante/ViewProfesorParticipante';
+import EditarProfesorParticipante from './users/profesorParticipante/EditProfesorParticipante';
+import ViewProyectos from './proyecto/proyectform/viewproyect';
+import DetalleProyecto from './proyecto/proyectform/ViewProyectoID';
+import CrearProyecto from './proyecto/proyectform/formproyect';
+import AlumnoParticipante from './users/alumnosParticipantes/ViewAlumnoParticipante';
+import EditarAlumnoParticipante from './users/alumnosParticipantes/EditarAlumnoParticipante';
+import EditarProyectoadmin from './proyecto/proyectform/EditProyectADMIN';
+import DetalleProyectoadmin from './proyecto/proyectform/ViewProyectIdAdmin';
 
 const App = () => {
   return (
@@ -89,9 +115,15 @@ const App = () => {
           <Route path="/home" element={
             <PrivateRoute element={Home}  />} />
 
-          <Route path="/proyect" element={<PrivateRoute element={ProyectoForm}  />} /> 
-          <Route path="/proyect/view" element={<PrivateRoute element={Proyectos}  />} />
-          <Route path="/editar/:id" element={<PrivateRoute element={EditarProyecto}  />} />
+          <Route path="/proyect" element={<PrivateRoute element={CrearProyecto}  />} /> 
+          <Route path="/proyecto/detalle/:id" element={<PrivateRoute element={DetalleProyecto}  />} /> 
+          <Route path="/proyect/view" element={<PrivateRoute element={ViewProyectos}  />} />
+          <Route path="/proyect/edit/:id" element={<PrivateRoute element={EditarProyecto}  />} />
+
+          <Route path="/proyect/editadmin/:id" element={<PrivateRoute element={EditarProyectoadmin}  />} />
+
+          <Route path="/proyecto/detalleadmin/:id" element={<PrivateRoute element={DetalleProyectoadmin}  />} /> 
+
 
           <Route path="/carrera/view" element={<PrivateRoute element={Carreras}  />} />
           <Route path="/carrera" element={<PrivateRoute element={CrearCarrera} />} />
@@ -181,6 +213,34 @@ const App = () => {
           <Route path="/direccion" element={<PrivateRoute element={PostDireccion} />}></Route>
           <Route path="/direccion/view" element={<PrivateRoute element={ViewDireccion} />}></Route>
           <Route path="/direccion/edit/:id" element={<PrivateRoute element={EditDireccion} />}></Route>
+
+          <Route path="/asignaturaparticipante" element={<PrivateRoute element={CrearAsignaturaParticipante} />}></Route>
+          <Route path="/asignaturaparticipante/view" element={<PrivateRoute element={ViewAsignaturaParticipante} />}></Route>
+          <Route path="/asignaturaparticipante/edit/:id" element={<PrivateRoute element={EditarAsignaturaParticipante} />}></Route>
+
+          <Route path="/divulgacion" element={<PrivateRoute element={CrearDivulgacion} />}></Route>
+          <Route path="/divulgacion/view" element={<PrivateRoute element={Divulgaciones} />}></Route>
+          <Route path="/divulgacion/edit/:id" element={<PrivateRoute element={EditarDivulgacion} />}></Route>
+
+          <Route path="/alumnoparticipante" element={<PrivateRoute element={PostAlumnoParticipante} />}></Route>
+          <Route path="/alumnoparticipante/view" element={<PrivateRoute element={AlumnoParticipante} />}></Route>
+          <Route path="/alumnoparticipante/edit/:id" element={<PrivateRoute element={EditarAlumnoParticipante} />}></Route>
+
+          <Route path="/alumnovoluntario" element={<PrivateRoute element={PostAlumnoVoluntario} />}></Route>
+          <Route path="/alumnovoluntario/view" element={<PrivateRoute element={ViewAlumnosVoluntarios} />}></Route>
+          <Route path="/alumnovoluntario/edit/:id" element={<PrivateRoute element={EditAlumnoVoluntario} />}></Route>
+
+          <Route path="/beneficiarios" element={<PrivateRoute element={PostBeneficiario} />}></Route>
+          <Route path="/beneficiarios/view" element={<PrivateRoute element={ViewBeneficiarios} />}></Route>
+          <Route path="/beneficiarios/edit/:id" element={<PrivateRoute element={EditBeneficiario} />}></Route>
+
+          <Route path="/entidadpostulante" element={<PrivateRoute element={CrearEntidadPostulante} />}></Route>
+          <Route path="/entidadpostulante/view" element={<PrivateRoute element={ViewEntidadesPostulantes} />}></Route>
+          <Route path="/entidadpostulante/edit/:id" element={<PrivateRoute element={EditEntidadPostulante} />}></Route>
+
+          <Route path="/profesorparticipante" element={<PrivateRoute element={CrearProfesorParticipante} />}></Route>
+          <Route path="/profesorparticipante/view" element={<PrivateRoute element={ViewProfesorParticipante} />}></Route>
+          <Route path="/profesorparticipante/edit/:id" element={<PrivateRoute element={EditarProfesorParticipante} />}></Route>
 
           <Route path="/not-authorized" element={<div>No autorizado</div>} />
         </Routes>
