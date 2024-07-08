@@ -17,7 +17,7 @@ const Inicio = () => {
   return (
     <div className="app-container" onMouseLeave={() => setSidebarOpen(false)}>
       <div className={`sidebar-menu ${sidebarOpen ? 'open' : ''}`}>
-
+    
       <img src="https://huella.ucm.cl/assets/img/logo_ucm_b.png" alt="Logo" className="logo-img" />
 
       <div className="dropdown-container">

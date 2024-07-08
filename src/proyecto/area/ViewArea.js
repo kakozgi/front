@@ -60,6 +60,9 @@ const Areas = () => {
             </div>
         </div>
     );
-};
+}
 
+
+
+ 
 export default Areas;

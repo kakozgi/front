@@ -232,7 +232,7 @@ const EditarProyectoadmin = () => {
                 >
                   <option value="">Seleccionar Ámbito</option>
                   {scopes.map((ambito) => (
-                    <option key={ambito.id} value={ambito.id}>{ambito.name_ambit}</option>
+                    <option key={ambito.id} value={ambito.id}>{ambito.name_scope}</option>
                   ))}
                 </select>
               </div>

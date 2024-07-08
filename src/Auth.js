@@ -30,7 +30,19 @@ export const obtenerIdRolUsuario = () => {
     return localStorage.getItem(AUTH_KEY);
 };
   
-
 export const eliminarRolUsuario = () => {
   localStorage.removeItem(AUTH_KEY);
-};
+}
+  
+export const estaAutenticado = () => {
+  return obtenerToken() !== null;
+}
+
+export const esAdmin = () => {
+  return obtenerRolUsuario() === 'admin';
+}
+
+export const esUsuario = () => {
+  return obtenerRolUsuario() === 'usuario';
+}
+

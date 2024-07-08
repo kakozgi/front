@@ -26,7 +26,6 @@ const ViewAlumnosVoluntarios = () => {
     const cargarProyectos = async () => {
         try {
             const response = await axios.get('http://localhost:3001/proyecto');
-            // Crear un objeto de proyectos con id como clave para facilitar el acceso
             const proyectosData = {};
             response.data.forEach(proyecto => {
                 proyectosData[proyecto.id] = proyecto.name_proyect;

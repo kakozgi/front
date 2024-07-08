@@ -72,7 +72,6 @@ const DetalleProyecto = () => {
                                 <p className="card-text"><strong>Fecha de Actualización:</strong> {proyecto.updateDate}</p>
                                 <p className="card-text"><strong>Fecha Final:</strong> {proyecto.finalDate}</p>
                                 <p className="card-text"><strong>Descripción:</strong> {proyecto.descripcion}</p>
-                                <p className="card-text"><strong>Etapa:</strong> {proyecto.id_stage.name_stage}</p>
                                 <Link to={`/proyect/edit/${proyecto.id}`} className="btn btn-primary me-2">Editar</Link>
                                 <button onClick={handleEliminarProyecto} className="btn btn-danger">Eliminar</button>
                             </div>
